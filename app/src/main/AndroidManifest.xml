@@ -3,7 +3,7 @@
     package="com.danicc.changesizetext">
 
     <!-- debemos cambiar el nombre a la clase application por nuestra clase-->
-    <!-- nuestra clase debe implementar(extends)git  application-->
+    <!-- nuestra clase debe implementar(extends) application-->
     <application
         android:name=".ChangeSizeApplication"
         android:allowBackup="true"
