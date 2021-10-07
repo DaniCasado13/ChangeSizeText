@@ -34,16 +34,23 @@ clase application , la clase ChangeSizeApplication hereda todo el contexto de nu
 -Para que la clase ChangeSizeApplication funcione como si fuera nuestra clase Application, debemos ir al AndroidManifest.xml y cambiar el nombre de application
 por nuestra clase ChangeSizeApplication.
 
- <!-- debemos cambiar el nombre a la clase application por nuestra clase-->
-    <!-- nuestra clase debe implementar(extends) application-->
-    <application
-        android:name=".ChangeSizeApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.ChangeSizeText">
+![ScreenShot](app/src/main/res/img/manifiest.JPG)
+
+-Ambas clases (Message y User) deben implementar la interfaz Serializable para poder ser recogidas en un Intent
+
+-Por ultimo debemos obtener el objeto User de la clase Application en nuestra Activity. Para conseguirlo lo haremos a través del contexto de Application (getApplication()), recordando que la sobrescribimos por nuestra clase (ChangeSizeApplication) por lo que necesitaremos hacerle un casting.
+
+ Bundle bundle= new Bundle();
+
+        //Para obtener el usuario de la clase Applicaction: obtenemos la clase Application (getApplication()),
+        //hacemos casting a ChangeSizeApplication
+        // utilizamos getUser(). para coger el usuario
+        Message message= new Message(((ChangeSizeApplication)getApplication()).getUser(),
+                binding.edTexto.getText().toString(),binding.skSize.getProgress());
+
+Para finalizar se muestra una de las pantallas de nuestra aplicacion en funcionamiento.
+
+![ScreenShot](app/src/main/res/img/capturaApp.JPG)
 
 # Documentacion utilizada
 <a>https://moronlu18.com/wordpress/</a>
